@@ -6,15 +6,12 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 file_path = "data.txt"
 
-
-def read_text_file(asdf):
-    with open(asdf, 'r') as file:
+def read_text_file(file_path):
+    with open(file_path, 'r') as file:
         return file.read()
 
-
 def get_question_from_user():
-    return input("Enter your question: ")
-
+    return input("Enter your question (type 'q' to quit): ")
 
 context_text = read_text_file(file_path)
 
@@ -30,15 +27,11 @@ Question: {question}
 prompt = ChatPromptTemplate.from_template(template)
 model = ChatOpenAI()
 
-retrieval_chain = (
-    {"context": retriever, "question": RunnablePassthrough()}
-    | prompt
-    | model
-    | StrOutputParser()
-)
-
-question = get_question_from_user()
-
-response = retrieval_chain.invoke(question)
-
-print(response)
+while True:
+    question = get_question_from_user()
+    if question.lower() == 'q':
+        print("Exiting...")
+        break
+    
+    response = retrieval_chain.invoke(question)
+    print(response)
