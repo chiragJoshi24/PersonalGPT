@@ -1,10 +1,6 @@
 import React from 'react';
 
 const Message = () => {
-    return (
-        <>
-            
-        </>
-    );
+    return <></>;
 };
 export default Message;

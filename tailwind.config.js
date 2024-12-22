@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ['./frontend/src/**/*.{html,js,jsx,ts,tsx}'],
+    content: ['src/**/*.{html,js,jsx,ts,tsx}'],
     theme: {
         extend: {
             colors: {
                 backgroundDark: '#020817',
-                backgroundLight: '#D9EAFD',
+                backgroundLight: '#9fc8f5',
             },
         },
     },
-    plugins: [
-        require('tailwind-scrollbar'), 
-    ],
+    plugins: [require('tailwind-scrollbar')],
 };
