@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Title from './Components/Title';
 import MessageBoard from './Components/MessageBoard';
 import TextBox from './Components/TextBox';

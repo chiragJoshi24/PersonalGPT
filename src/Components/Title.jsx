@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from '/logo.svg';
 
 const Title = () => {
@@ -6,7 +5,9 @@ const Title = () => {
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
                 <img src={logo} alt="Logo" className="h-12" />
-                <div className="text-[#F87171] font-bold text-3xl">PersonalGPT</div>
+                <div className="text-[#F87171] font-bold text-3xl">
+                    PersonalGPT
+                </div>
             </div>
             <div className="flex items-center gap-2 lg:gap-10">
                 <a
