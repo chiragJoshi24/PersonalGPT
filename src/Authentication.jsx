@@ -43,7 +43,7 @@ const Authentication = () => {
                     Welcome to PersonalGPT
                 </div>
             </div>
-            <div className="border-black h-96 border-solid border-[1px] w-96 gap-4 rounded-xl flex flex-col items-center justify-center bg-backgroundLight">
+            <div className="border-black h-96 border-solid border-[1px] w-96 gap-4 rounded-xl flex flex-col items-center justify-center bg-backgroundLight text-black">
                 <h1 className="text-3xl font-extrabold text-black">
                     Sign In / Sign Up
                 </h1>
@@ -74,6 +74,7 @@ const Authentication = () => {
                 >
                     Sign Up
                 </button>
+                Email Verification is not required.
             </div>
         </div>
     );
