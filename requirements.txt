@@ -8,6 +8,7 @@ cohere==5.13.4
 fastavro==1.10.0
 filelock==3.16.1
 Flask @ file:///croot/flask_1716545870149/work
+Flask-Cors==5.0.0
 fsspec==2024.12.0
 h11==0.14.0
 httpcore==1.0.7
