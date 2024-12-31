@@ -5,6 +5,7 @@ import Message from './Components/Message';
 const Home = () => {
     const [inputValue, setInputValue] = useState('');
     const [messages, setMessages] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     async function handleSubmit(event) {
         if (event) event.preventDefault();
@@ -16,6 +17,7 @@ const Home = () => {
 
         setMessages([...messages, { text: inputValue, isUserMessage: true }]);
         setInputValue('');
+        setLoading(true);
 
         try {
             const response = await fetch('http://localhost:5000/', {
@@ -29,7 +31,13 @@ const Home = () => {
                 { text: data.response, isUserMessage: false },
             ]);
         } catch (err) {
-            console.log('error:' + err);
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { text: "I'm sorry, but I can't help you at this time. Please check your Internet Connection or try again later.", isUserMessage: false },
+            ]);
+            console.log(err.message || err);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -55,15 +63,23 @@ const Home = () => {
                     </a>
                 </div>
             </div>
-            <div id="chat-container" className="h-[70%] mt-6 bg-gray-800 rounded-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-700 p-4 relative">
+            <div
+                id="chat-container"
+                className="h-[70%] mt-6 bg-gray-800 rounded-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-700 p-4 relative"
+            >
                 {messages.map((msg, index) => (
-                    <Message key={index} text={msg.text} isUserMessage={msg.isUserMessage} />
+                    <Message
+                        key={index}
+                        text={msg.text}
+                        isUserMessage={msg.isUserMessage}
+                    />
                 ))}
             </div>
-            <div className='flex w-full justify-center'>
-                <button 
-                    onClick={() => setMessages([])} 
-                    className="my-1 hover:underline transition duration-100">
+            <div className="flex w-full justify-center">
+                <button
+                    onClick={() => setMessages([])}
+                    className="my-1 hover:underline transition duration-100"
+                >
                     Click here to delete all chat history
                 </button>
             </div>
@@ -75,7 +91,7 @@ const Home = () => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
+                        if (e.key === 'Enter' && !loading) {
                             handleSubmit(e);
                         }
                     }}
@@ -84,6 +100,7 @@ const Home = () => {
                     <button
                         onClick={handleSubmit}
                         className="hover:text-red-400 transition duration-300"
+                        disabled={loading}
                     >
                         <i className="fa fa-paper-plane text-white cursor-pointer text-3xl"></i>
                     </button>
