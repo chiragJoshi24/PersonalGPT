@@ -1,3 +1,7 @@
+# This file is entirely for testing purposes.
+# It has nothing to do with the project.
+# It is mentioned in other components, literally zero times.
+
 import cohere
 import os
 from dotenv import load_dotenv
