@@ -10,7 +10,7 @@ api_key = os.getenv("COHERE_API_KEY")
 port = int(os.environ.get('PORT', 5000))
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=['https://personalgpt-3cv0.onrender.com/home'])
 co = cohere.ClientV2(api_key)
 
 @app.route('/', methods=['POST'])
@@ -25,7 +25,7 @@ def send_response():
             messages=[{"role": "user", "content": user_message}]
         )
 
-        if not response.message or not response.message.content:
+        if not response or not response.message or not response.message.content:
             return jsonify({"error": "Invalid response from API"}), 500
 
         return jsonify({"response": response.message.content[0].text})
@@ -38,4 +38,4 @@ def send_response():
         return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500  
 
 if __name__ == '__main__':
-    app.run(debug=True, port=port)
+    app.run(debug=False, port=port, host="0.0.0.0")  
