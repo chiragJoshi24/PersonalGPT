@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 api_key = os.getenv("COHERE_API_KEY")
+port = int(os.environ.get('PORT', 5000))
 
 app = Flask(__name__)
 CORS(app)
@@ -37,4 +38,4 @@ def send_response():
         return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500  
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=port)

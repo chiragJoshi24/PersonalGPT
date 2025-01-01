@@ -8,8 +8,7 @@ This project implements a simple chatbot for question answering. It leverages Co
 
 - **User Login and Data Saving:** Users can log in with their email ID. No verification is required.
 - **File Upload:** Users can upload files to provide context for the bot's responses.
-- **Voice Interaction:** Users can interact with the bot using voice prompts for a more natural communication experience.
-- **Context Retrieval:** The system retrieves relevant context from uploaded files or previously saved data to enhance response accuracy.
+- **Simple Interaction:** Users can interact with the bot using text prompts.
 - **Response Generation:** Leverages Cohere and Google Gemini to generate accurate and contextually relevant answers based on user input.
 
 ## Usage
@@ -28,7 +27,7 @@ This project implements a simple chatbot for question answering. It leverages Co
     ```bash
     npm run start
     ```
-    
+
 ## Future Enhancements
 
 - **Custom Backend Development:** Transitioning to building a custom backend to handle response generation, providing more control and flexibility over the system's functionality.
@@ -39,4 +38,5 @@ This project implements a simple chatbot for question answering. It leverages Co
 Contributions are welcome via pull requests. For major changes, please open an issue first to discuss the proposed changes.
 
 ## Note
+
 As of the latest commit the project isn't complete and therefore some functionalities might not work as expected.

@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+import scrollbarPlugin from 'tailwind-scrollbar';
 export default {
     content: ['src/**/*.{html,js,jsx,ts,tsx}'],
     theme: {
@@ -9,5 +9,5 @@ export default {
             },
         },
     },
-    plugins: [require('tailwind-scrollbar')],
+    plugins: [scrollbarPlugin],
 };
