@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import logo from '/logo.svg';
 import Message from './Components/Message';
+import ThinkingAnimation from './Animations/ThinkingAnimation';
 
 const Home = () => {
     const [inputValue, setInputValue] = useState('');
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const chatContainerRef = useRef(null);
+
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTo({ 
+                top: chatContainerRef.current.scrollHeight, 
+                behavior: 'smooth' 
+            });
+        }
+    }, [messages]);
 
     async function handleSubmit(event) {
         if (event) event.preventDefault();
@@ -66,6 +77,7 @@ const Home = () => {
             <div
                 id="chat-container"
                 className="h-[70%] mt-6 bg-gray-800 rounded-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-700 p-4 relative"
+                ref={chatContainerRef}
             >
                 {messages.map((msg, index) => (
                     <Message
@@ -74,6 +86,7 @@ const Home = () => {
                         isUserMessage={msg.isUserMessage}
                     />
                 ))}
+                {loading && <ThinkingAnimation />}
             </div>
             <div className="flex w-full justify-center">
                 <button
