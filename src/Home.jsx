@@ -31,7 +31,7 @@ const Home = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/', {
+            const response = await fetch('https://backend-6az5.onrender.com', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: inputValue }),
