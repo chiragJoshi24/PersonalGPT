@@ -74,7 +74,6 @@ const Authentication = () => {
                 >
                     Sign Up
                 </button>
-                Email Verification is not required.
             </div>
         </div>
     );
