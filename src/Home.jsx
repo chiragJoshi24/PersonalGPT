@@ -22,7 +22,6 @@ const Home = () => {
         if (event) event.preventDefault();
 
         if (!inputValue.trim()) {
-            alert('Input cannot be empty');
             return;
         }
 
