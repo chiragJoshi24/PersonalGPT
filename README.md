@@ -1,5 +1,9 @@
 # PersonalGPT
 
+<p align="center">
+  <img src="/src/assets/image.png" />
+</p>
+
 ## Description
 
 This project implements a simple chatbot for question answering. It leverages Cohere and Google Gemini for context retrieval and generating responses.
