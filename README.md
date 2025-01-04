@@ -21,7 +21,7 @@ This project implements a simple chatbot for question answering. It leverages Co
 3. Run the following commands to install the necessary dependencies:
     ```bash
     npm install
-    pip install -r requirements.txt
+    cd server && pip install -r requirements.txt
     ```
 4. Start the application with:
     ```bash
@@ -33,7 +33,7 @@ This project implements a simple chatbot for question answering. It leverages Co
 - **Custom Backend Development:** Transitioning to building a custom backend to handle response generation, providing more control and flexibility over the system's functionality.
 - **Advanced AI Features:** Implementing additional advanced features such as more personalized responses, improved context management, and better user interaction capabilities.
 
-## Contributions
+## Contributing
 
 Contributions are welcome via pull requests. For major changes, please open an issue first to discuss the proposed changes.
 
